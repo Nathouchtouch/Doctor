@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr Charles Aisenberg — Médecine du sport à Levallois-Perret</title>
+<meta name="description" content="Cabinet du Dr Charles Aisenberg à Levallois-Perret : médecine du sport, médecine manuelle et ostéopathie, mésothérapie, médecine de plongée et médecine générale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --marine:#0f2742;
+    --marine-doux:#1d3a5c;
+    --bleu-vif:#2f6fed;
+    --bleu-clair:#eaf1fb;
+    --gris-fond:#f4f6f9;
+    --gris-bord:#e2e7ee;
+    --texte:#1f2a37;
+    --texte-doux:#5a6473;
+    --blanc:#fff;
+    --rayon:18px;
+    --rayon-l:24px;
+    --ombre:0 18px 50px rgba(15,39,66,.10);
+    --ombre-l:0 24px 70px rgba(15,39,66,.16);
+    --largeur:1240px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Manrope',-apple-system,sans-serif;color:var(--texte);background:var(--blanc);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-weight:800;line-height:1.12;color:var(--marine);letter-spacing:-.02em}
+  img{max-width:100%;display:block}
+  a{color:var(--bleu-vif)}
+  .contenu{max-width:var(--largeur);margin:0 auto;padding:0 32px}
+
+  /* ---- En-tête ---- */
+  .entete{background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--gris-bord);position:sticky;top:0;z-index:100}
+  .entete .contenu{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;gap:18px;flex-wrap:wrap}
+  .logo{text-decoration:none;line-height:1.05}
+  .logo .l1{display:block;font-size:.78rem;font-weight:600;letter-spacing:.22em;color:var(--texte-doux)}
+  .logo .l2{display:block;font-size:1.45rem;font-weight:800;color:var(--marine);letter-spacing:-.01em}
+  .logo .l3{display:block;font-size:.62rem;font-weight:600;letter-spacing:.28em;color:var(--bleu-vif);margin-top:2px}
+  .nav{display:flex;gap:2px;align-items:center;list-style:none;flex-wrap:wrap}
+  .nav a{text-decoration:none;color:var(--texte-doux);font-size:.94rem;font-weight:600;padding:9px 15px;border-radius:9px;transition:.2s}
+  .nav a:hover{background:var(--bleu-clair);color:var(--marine)}
+  .nav a.actif{color:var(--marine)}
+  .bouton-rdv{background:var(--marine)!important;color:#fff!important;padding:11px 22px!important;border-radius:50px!important}
+  .bouton-rdv:hover{background:var(--bleu-vif)!important}
+
+  /* ---- Hero ---- */
+  .hero{background:linear-gradient(180deg,var(--gris-fond) 0%,var(--blanc) 100%);padding:70px 0 50px;position:relative;overflow:hidden}
+  .hero-grille{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  .hero h1{font-size:clamp(2.8rem,5vw,4.3rem)}
+  .hero h1 .pt{color:var(--bleu-vif)}
+  .hero p.intro{font-size:1.12rem;color:var(--texte-doux);max-width:430px;margin:24px 0 0;font-weight:500}
+  .hero .barre{width:64px;height:4px;background:var(--bleu-vif);border-radius:2px;margin:26px 0}
+  .hero-actions{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;background:var(--bleu-vif);color:#fff;text-decoration:none;font-weight:700;font-size:.97rem;padding:15px 32px;border-radius:50px;transition:transform .15s,background .2s;border:none;cursor:pointer}
+  .btn:hover{background:var(--marine);transform:translateY(-2px)}
+  .btn-ligne{background:transparent;color:var(--marine);border:1.6px solid var(--gris-bord)}
+  .btn-ligne:hover{background:var(--marine);color:#fff;border-color:var(--marine)}
+
+  /* Colonne visuelle du hero : photo + cartes flottantes */
+  .hero-visuel{position:relative}
+  .hero-photo{background:linear-gradient(160deg,var(--marine),var(--marine-doux));border-radius:var(--rayon-l);aspect-ratio:4/4.4;display:flex;align-items:center;justify-content:center;color:#9fb4cf;text-align:center;font-size:.9rem;font-weight:600;padding:30px;box-shadow:var(--ombre-l)}
+  .carte-flottante{position:absolute;background:var(--blanc);border:1px solid var(--gris-bord);border-radius:14px;box-shadow:var(--ombre);padding:14px 16px;display:flex;gap:12px;align-items:center;max-width:260px}
+  .carte-flottante .pic{width:42px;height:42px;border-radius:10px;background:var(--bleu-clair);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+  .carte-flottante .t{font-weight:800;font-size:.82rem;color:var(--marine);line-height:1.25}
+  .carte-flottante .s{font-size:.76rem;color:var(--texte-doux);line-height:1.3}
+  .cf-1{top:14%;right:-30px}
+  .cf-2{top:44%;right:-44px}
+  .cf-3{top:74%;right:-30px}
+
+  /* ---- Bandeau spécialités (cartes photo) ---- */
+  .specialites{padding:60px 0 80px;background:var(--blanc)}
+  .grille-spe{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+  .carte-spe{position:relative;border-radius:var(--rayon);overflow:hidden;min-height:300px;background:linear-gradient(170deg,var(--marine-doux),var(--marine));display:flex;flex-direction:column;justify-content:flex-end;padding:24px;color:#fff;text-decoration:none;transition:transform .2s,box-shadow .2s}
+  .carte-spe:hover{transform:translateY(-7px);box-shadow:var(--ombre-l)}
+  .carte-spe::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(47,111,237,.45),transparent 60%)}
+  .carte-spe .ic{position:relative;font-size:1.6rem;margin-bottom:auto}
+  .carte-spe h3{position:relative;color:#fff;font-size:1.12rem;margin-bottom:6px}
+  .carte-spe p{position:relative;font-size:.83rem;color:#c6d3e6;font-weight:500}
+  .carte-spe .trait{position:relative;width:34px;height:3px;background:var(--bleu-vif);border-radius:2px;margin-top:12px}
+
+  /* ---- Bandeau atouts ---- */
+  .atouts{background:var(--gris-fond);padding:46px 0}
+  .grille-atouts{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+  .atout{display:flex;gap:14px;align-items:flex-start}
+  .atout .ic{width:44px;height:44px;border-radius:11px;background:var(--blanc);border:1px solid var(--gris-bord);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+  .atout .t{font-weight:800;font-size:.95rem;color:var(--marine)}
+  .atout .s{font-size:.86rem;color:var(--texte-doux)}
+
+  /* ---- Section médecin ---- */
+  .medecin{padding:90px 0}
+  .medecin-grille{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+  .medecin-photo{background:linear-gradient(160deg,var(--bleu-clair),#d6e3f7);border-radius:var(--rayon-l);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;color:var(--bleu-vif);text-align:center;font-size:.9rem;font-weight:600;padding:26px}
+  .medecin .surt{text-transform:uppercase;letter-spacing:.2em;font-size:.76rem;font-weight:700;color:var(--bleu-vif);margin-bottom:14px}
+  .medecin h2{font-size:clamp(1.9rem,3.5vw,2.7rem);margin-bottom:18px}
+  .medecin p{color:var(--texte-doux);margin-bottom:16px;font-weight:500}
+  .medecin .btn{margin-top:10px}
+
+  /* ---- Bandeau contact ---- */
+  .contact{background:var(--marine);color:#fff;padding:80px 0}
+  .contact h2{color:#fff;font-size:clamp(1.8rem,3.5vw,2.5rem);text-align:center}
+  .contact .soustitre{text-align:center;color:#9fb4cf;margin:12px auto 44px;max-width:520px;font-weight:500}
+  .grille-contact{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+  .ct-item .et{text-transform:uppercase;letter-spacing:.13em;font-size:.73rem;color:var(--bleu-vif);font-weight:700;margin-bottom:8px}
+  .ct-item a,.ct-item p{color:#fff;text-decoration:none;font-weight:500}
+  .ct-item a:hover{text-decoration:underline}
+  .contact-cta{text-align:center;margin-top:44px}
+
+  /* ---- Pied ---- */
+  .pied{background:#0a1c30;color:#7f93ab;padding:40px 0;font-size:.88rem}
+  .pied .contenu{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+  .pied a{color:#7f93ab}
+
+  /* ---- Responsive ---- */
+  @media(max-width:1000px){
+    .grille-spe{grid-template-columns:repeat(2,1fr)}
+    .grille-atouts{grid-template-columns:repeat(2,1fr)}
+    .grille-contact{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:820px){
+    .hero-grille{grid-template-columns:1fr;gap:40px}
+    .hero-visuel{max-width:420px;margin:0 auto}
+    .carte-flottante{display:none}
+    .medecin-grille{grid-template-columns:1fr;gap:34px}
+  }
+  @media(max-width:560px){
+    .grille-spe,.grille-atouts,.grille-contact{grid-template-columns:1fr}
+    .contenu{padding:0 20px}
+    .hero{padding:48px 0 30px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== EN-TÊTE ===== -->
+<header class="entete">
+  <div class="contenu">
+    <a href="index.html" class="logo">
+      <span class="l1">DOCTEUR</span>
+      <span class="l2">AISENBERG</span>
+      <span class="l3">MÉDECINE DU SPORT</span>
+    </a>
+    <nav>
+      <ul class="nav">
+        <li><a href="index.html" class="actif">Accueil</a></li>
+        <li><a href="mesotherapie.html">Mésothérapie</a></li>
+        <li><a href="cv.html">Parcours</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://www.doctolib.fr/medecin-du-sport/levallois-perret/charles-aisenberg" class="bouton-rdv" target="_blank" rel="noopener">Prendre rendez-vous</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="contenu">
+    <div class="hero-grille">
+      <div>
+        <h1>Comprendre<span class="pt">.</span><br>Traiter<span class="pt">.</span><br>Accompagner<span class="pt">.</span></h1>
+        <div class="barre"></div>
+        <p class="intro">Une médecine du sport intégrative, au service du mouvement, de la santé et du bien-être de chaque patient.</p>
+        <div class="hero-actions">
+          <a href="https://www.doctolib.fr/medecin-du-sport/levallois-perret/charles-aisenberg" class="btn" target="_blank" rel="noopener">Prendre rendez-vous</a>
+          <a href="#specialites" class="btn btn-ligne">Découvrir les soins</a>
+        </div>
+      </div>
+      <div class="hero-visuel">
+        <div class="hero-photo">Emplacement réservé<br>pour une photo du<br>Dr Aisenberg en consultation</div>
+        <div class="carte-flottante cf-1">
+          <div class="pic">🩺</div>
+          <div><div class="t">Expertise clinique</div><div class="s">Diagnostic précis et personnalisé</div></div>
+        </div>
+        <div class="carte-flottante cf-2">
+          <div class="pic">🖐️</div>
+          <div><div class="t">Thérapies complémentaires</div><div class="s">Médecine manuelle, mésothérapie</div></div>
+        </div>
+        <div class="carte-flottante cf-3">
+          <div class="pic">🔄</div>
+          <div><div class="t">Suivi coordonné</div><div class="s">Un parcours de soin adapté</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPÉCIALITÉS ===== -->
+<section class="specialites" id="specialites">
+  <div class="contenu">
+    <div class="grille-spe">
+      <a href="cv.html" class="carte-spe">
+        <div class="ic">🏅</div>
+        <h3>Médecine du sport</h3>
+        <p>Suivi de l'athlète, prévention et traitement des blessures</p>
+        <div class="trait"></div>
+      </a>
+      <a href="cv.html" class="carte-spe">
+        <div class="ic">🦴</div>
+        <h3>Médecine manuelle &amp; Ostéopathie</h3>
+        <p>Douleurs articulaires et vertébrales, approche fonctionnelle</p>
+        <div class="trait"></div>
+      </a>
+      <a href="mesotherapie.html" class="carte-spe">
+        <div class="ic">💉</div>
+        <h3>Mésothérapie</h3>
+        <p>Micro-injections locales pour soulager les douleurs ciblées</p>
+        <div class="trait"></div>
+      </a>
+      <a href="cv.html" class="carte-spe">
+        <div class="ic">🤿</div>
+        <h3>Médecine de plongée</h3>
+        <p>Visites d'aptitude et conseils pour la plongée sous-marine</p>
+        <div class="trait"></div>
+      </a>
+      <a href="cv.html" class="carte-spe">
+        <div class="ic">🩺</div>
+        <h3>Médecine générale</h3>
+        <p>Suivi médical global et accompagnement de proximité</p>
+        <div class="trait"></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ATOUTS ===== -->
+<section class="atouts">
+  <div class="contenu">
+    <div class="grille-atouts">
+      <div class="atout">
+        <div class="ic">🎯</div>
+        <div><div class="t">Approche personnalisée</div><div class="s">Un soin adapté à chaque patient</div></div>
+      </div>
+      <div class="atout">
+        <div class="ic">🏃</div>
+        <div><div class="t">Pour tous les sportifs</div><div class="s">Amateurs, confirmés, sportifs urbains</div></div>
+      </div>
+      <div class="atout">
+        <div class="ic">📅</div>
+        <div><div class="t">Consultations sur rendez-vous</div><div class="s">Cabinet à Levallois-Perret</div></div>
+      </div>
+      <div class="atout">
+        <div class="ic">💬</div>
+        <div><div class="t">Médecine humaine</div><div class="s">Écoute, temps et suivi dans la durée</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MÉDECIN ===== -->
+<section class="medecin">
+  <div class="contenu">
+    <div class="medecin-grille">
+      <div class="medecin-photo">Emplacement réservé<br>pour le portrait<br>du Dr Aisenberg</div>
+      <div>
+        <p class="surt">Le médecin</p>
+        <h2>Dr Charles Aisenberg</h2>
+        <p>Le Dr Aisenberg met son expérience au service d'une médecine attentive et personnalisée. En réunissant plusieurs disciplines — médecine du sport, médecine manuelle, mésothérapie — il propose à chaque patient une prise en charge complète.</p>
+        <p>Sa pratique repose sur l'écoute, la rigueur du diagnostic et un suivi dans la durée, pour les sportifs comme pour les patients de tous les jours.</p>
+        <a href="cv.html" class="btn">Découvrir le parcours</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact">
+  <div class="contenu">
+    <h2>Prendre rendez-vous</h2>
+    <p class="soustitre">Le cabinet vous accueille à Levallois-Perret, sur rendez-vous.</p>
+    <div class="grille-contact">
+      <div class="ct-item">
+        <p class="et">Adresse</p>
+        <p>58 rue Carnot<br>92300 Levallois-Perret</p>
+      </div>
+      <div class="ct-item">
+        <p class="et">Téléphone</p>
+        <p><a href="tel:+33147576343">01 47 57 63 43</a></p>
+      </div>
+      <div class="ct-item">
+        <p class="et">Email</p>
+        <p><a href="mailto:docteur@aisenberg.net">docteur@aisenberg.net</a></p>
+      </div>
+      <div class="ct-item">
+        <p class="et">En ligne</p>
+        <p><a href="https://www.doctolib.fr/medecin-du-sport/levallois-perret/charles-aisenberg" target="_blank" rel="noopener">Réserver sur Doctolib</a></p>
+      </div>
+    </div>
+    <div class="contact-cta">
+      <a href="https://www.doctolib.fr/medecin-du-sport/levallois-perret/charles-aisenberg" class="btn" target="_blank" rel="noopener">Réserver une consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PIED ===== -->
+<footer class="pied">
+  <div class="contenu">
+    <span>© 2026 Dr Charles Aisenberg — Médecine du sport, Levallois-Perret</span>
+    <span><a href="mentions-legales.html">Mentions légales</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

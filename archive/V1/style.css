@@ -1,0 +1,327 @@
+/* ============================================
+   Site Dr Charles Aisenberg — feuille de style
+   Couleurs, polices et mise en page communes
+   à toutes les pages.
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Outfit:wght@300;400;500;600&display=swap');
+
+:root {
+  --bleu-profond: #1a3a4a;
+  --bleu-soin:    #2e6b7e;
+  --bleu-clair:   #e8f0f2;
+  --sable:        #f7f4ef;
+  --texte:        #2a2f33;
+  --texte-doux:   #5c6670;
+  --blanc:        #ffffff;
+  --accent:       #c9a063;
+  --rayon:        14px;
+  --ombre:        0 10px 40px rgba(26, 58, 74, 0.10);
+  --largeur:      1100px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', -apple-system, sans-serif;
+  color: var(--texte);
+  background: var(--sable);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--bleu-profond);
+}
+
+a { color: var(--bleu-soin); }
+
+img { max-width: 100%; display: block; }
+
+.contenu {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- En-tête / navigation ---------- */
+.entete {
+  background: var(--blanc);
+  border-bottom: 1px solid var(--bleu-clair);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.entete .contenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.logo {
+  font-family: 'Fraunces', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--bleu-profond);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.logo span { color: var(--bleu-soin); }
+
+.nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--texte-doux);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav a:hover { background: var(--bleu-clair); color: var(--bleu-profond); }
+
+.bouton-rdv {
+  background: var(--bleu-soin) !important;
+  color: var(--blanc) !important;
+  padding: 10px 20px !important;
+}
+
+.bouton-rdv:hover { background: var(--bleu-profond) !important; }
+
+/* ---------- Section d'accueil ---------- */
+.hero {
+  background: linear-gradient(160deg, var(--bleu-clair) 0%, var(--sable) 100%);
+  padding: 90px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(46,107,126,0.12), transparent 70%);
+  border-radius: 50%;
+}
+
+.hero .contenu { position: relative; }
+
+.hero .surtitre {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--bleu-soin);
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  max-width: 760px;
+}
+
+.hero p.intro {
+  font-size: 1.15rem;
+  color: var(--texte-doux);
+  max-width: 580px;
+  margin: 22px 0 32px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--bleu-soin);
+  color: var(--blanc);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 14px 30px;
+  border-radius: 50px;
+  transition: transform 0.15s, background 0.2s;
+}
+
+.btn:hover { background: var(--bleu-profond); transform: translateY(-2px); }
+
+.btn-clair {
+  background: transparent;
+  color: var(--bleu-soin);
+  border: 1.5px solid var(--bleu-soin);
+  margin-left: 10px;
+}
+
+.btn-clair:hover { background: var(--bleu-soin); color: var(--blanc); }
+
+/* ---------- Sections génériques ---------- */
+.section { padding: 80px 0; }
+
+.section-titre {
+  text-align: center;
+  margin-bottom: 14px;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+}
+
+.section-soustitre {
+  text-align: center;
+  color: var(--texte-doux);
+  max-width: 600px;
+  margin: 0 auto 50px;
+}
+
+/* ---------- Cartes spécialités ---------- */
+.grille-soins {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.carte-soin {
+  background: var(--blanc);
+  border-radius: var(--rayon);
+  padding: 32px 26px;
+  box-shadow: var(--ombre);
+  border: 1px solid var(--bleu-clair);
+  transition: transform 0.2s;
+}
+
+.carte-soin:hover { transform: translateY(-6px); }
+
+.carte-soin .icone {
+  width: 52px; height: 52px;
+  background: var(--bleu-clair);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 18px;
+}
+
+.carte-soin h3 { font-size: 1.2rem; margin-bottom: 8px; }
+
+.carte-soin p { color: var(--texte-doux); font-size: 0.95rem; }
+
+/* ---------- Section présentation médecin ---------- */
+.medecin {
+  background: var(--blanc);
+}
+
+.medecin-grille {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.medecin-photo {
+  background: var(--bleu-clair);
+  border-radius: var(--rayon);
+  aspect-ratio: 4 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bleu-soin);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 20px;
+}
+
+.medecin h2 { font-size: 2rem; margin-bottom: 6px; }
+
+.medecin .role {
+  color: var(--bleu-soin);
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+/* ---------- Bandeau contact ---------- */
+.contact-bandeau {
+  background: var(--bleu-profond);
+  color: var(--blanc);
+}
+
+.contact-bandeau h2 { color: var(--blanc); }
+
+.contact-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  margin-top: 36px;
+}
+
+.contact-item .etiquette {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.contact-item a, .contact-item p { color: var(--blanc); text-decoration: none; }
+.contact-item a:hover { text-decoration: underline; }
+
+/* ---------- Pied de page ---------- */
+.pied {
+  background: #122833;
+  color: #8ba3ad;
+  padding: 40px 0;
+  font-size: 0.9rem;
+}
+
+.pied .contenu {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.pied a { color: #8ba3ad; }
+
+/* ---------- Pages de contenu simple ---------- */
+.page-entete {
+  background: linear-gradient(160deg, var(--bleu-clair), var(--sable));
+  padding: 70px 0 50px;
+}
+
+.page-entete h1 { font-size: clamp(2rem, 4vw, 3rem); }
+
+.page-corps { padding: 60px 0; }
+
+.page-corps h2 { font-size: 1.5rem; margin: 36px 0 12px; }
+
+.page-corps p { margin-bottom: 16px; color: var(--texte-doux); }
+
+.page-corps ul { margin: 0 0 16px 22px; color: var(--texte-doux); }
+
+.bloc-info {
+  background: var(--blanc);
+  border-left: 3px solid var(--bleu-soin);
+  border-radius: 8px;
+  padding: 24px 28px;
+  box-shadow: var(--ombre);
+  margin-bottom: 24px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  .medecin-grille { grid-template-columns: 1fr; }
+  .entete .contenu { flex-direction: column; gap: 14px; }
+  .hero { padding: 60px 0 50px; }
+  .section { padding: 56px 0; }
+  .btn-clair { margin-left: 0; margin-top: 10px; }
+}

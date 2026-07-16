@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dr Charles Aisenberg — Médecine du sport à Levallois-Perret</title>
-<meta name="description" content="Cabinet du Dr Charles Aisenberg à Levallois-Perret : médecine du sport, médecine manuelle et ostéopathie, mésothérapie, médecine de plongée et médecine générale.">
+<title>Dr Charles Aisenberg — Médecine du sport à Neuilly-sur-Seine et Paris</title>
+<meta name="description" content="Cabinets du Dr Charles Aisenberg à Neuilly-sur-Seine et Paris : médecine du sport, médecine manuelle et ostéopathie, mésothérapie, médecine de plongée et médecine générale.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -63,13 +63,13 @@
   /* Colonne visuelle du hero : photo + cartes flottantes */
   .hero-visuel{position:relative}
   .hero-photo{background:linear-gradient(160deg,var(--marine),var(--marine-doux));border-radius:var(--rayon-l);aspect-ratio:4/4.4;display:flex;align-items:center;justify-content:center;color:#9fb4cf;text-align:center;font-size:.9rem;font-weight:600;padding:30px;box-shadow:var(--ombre-l)}
-  .carte-flottante{position:absolute;background:var(--blanc);border:1px solid var(--gris-bord);border-radius:14px;box-shadow:var(--ombre);padding:14px 16px;display:flex;gap:12px;align-items:center;max-width:260px}
+  .carte-flottante{position:absolute;background:var(--blanc);border:1px solid var(--gris-bord);border-radius:14px;box-shadow:var(--ombre);padding:14px 16px;display:flex;gap:12px;align-items:center;width:310px;right:-24px}
   .carte-flottante .pic{width:42px;height:42px;border-radius:10px;background:var(--bleu-clair);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
-  .carte-flottante .t{font-weight:800;font-size:.82rem;color:var(--marine);line-height:1.25}
+  .carte-flottante .t{font-weight:800;font-size:.82rem;color:var(--marine);line-height:1.25;white-space:nowrap}
   .carte-flottante .s{font-size:.76rem;color:var(--texte-doux);line-height:1.3}
-  .cf-1{top:14%;right:-30px}
-  .cf-2{top:44%;right:-44px}
-  .cf-3{top:74%;right:-30px}
+  .cf-1{top:12%}
+  .cf-2{top:43%}
+  .cf-3{top:74%}
 
   /* ---- Bandeau spécialités (cartes photo) ---- */
   .specialites{padding:60px 0 80px;background:var(--blanc)}
@@ -106,6 +106,7 @@
   .grille-contact{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
   .ct-item .et{text-transform:uppercase;letter-spacing:.13em;font-size:.73rem;color:var(--bleu-vif);font-weight:700;margin-bottom:8px}
   .ct-item a,.ct-item p{color:#fff;text-decoration:none;font-weight:500}
+  .ct-item .lieu{display:block;font-weight:800;margin-bottom:2px}
   .ct-item a:hover{text-decoration:underline}
   .contact-cta{text-align:center;margin-top:44px}
 
@@ -163,9 +164,8 @@
       <div>
         <h1>Comprendre<span class="pt">.</span><br>Traiter<span class="pt">.</span><br>Accompagner<span class="pt">.</span></h1>
         <div class="barre"></div>
-        <p class="intro">Une médecine du sport intégrative, au service du mouvement, de la santé et du bien-être de chaque patient.</p>
+        <p class="intro">Une médecine du sport au service du mouvement, de la santé et du bien-être de chaque patient.</p>
         <div class="hero-actions">
-          <a href="https://www.doctolib.fr/medecin-du-sport/levallois-perret/charles-aisenberg" class="btn" target="_blank" rel="noopener">Prendre rendez-vous</a>
           <a href="#specialites" class="btn btn-ligne">Découvrir les soins</a>
         </div>
       </div>
@@ -240,7 +240,7 @@
       </div>
       <div class="atout">
         <div class="ic">📅</div>
-        <div><div class="t">Consultations sur rendez-vous</div><div class="s">Cabinet à Levallois-Perret</div></div>
+        <div><div class="t">Consultations sur rendez-vous</div><div class="s">Cabinets à Neuilly-sur-Seine et Paris</div></div>
       </div>
       <div class="atout">
         <div class="ic">💬</div>
@@ -270,11 +270,15 @@
 <section class="contact">
   <div class="contenu">
     <h2>Prendre rendez-vous</h2>
-    <p class="soustitre">Le cabinet vous accueille à Levallois-Perret, sur rendez-vous.</p>
+    <p class="soustitre">Les cabinets vous accueillent à Neuilly-sur-Seine et à Paris, sur rendez-vous.</p>
     <div class="grille-contact">
       <div class="ct-item">
-        <p class="et">Adresse</p>
-        <p>58 rue Carnot<br>92300 Levallois-Perret</p>
+        <p class="et">Adresses</p>
+        <p><span class="lieu">Cabinet de Neuilly</span>7 Boulevard Richard Wallace<br>92200 Neuilly-sur-Seine</p>
+      </div>
+      <div class="ct-item">
+        <p class="et" aria-hidden="true">&nbsp;</p>
+        <p><span class="lieu">Cabinet place des Ternes</span>241 Rue du Faubourg Saint-Honoré<br>75008 Paris</p>
       </div>
       <div class="ct-item">
         <p class="et">Téléphone</p>
@@ -283,10 +287,6 @@
       <div class="ct-item">
         <p class="et">Email</p>
         <p><a href="mailto:docteur@aisenberg.net">docteur@aisenberg.net</a></p>
-      </div>
-      <div class="ct-item">
-        <p class="et">En ligne</p>
-        <p><a href="https://www.doctolib.fr/medecin-du-sport/levallois-perret/charles-aisenberg" target="_blank" rel="noopener">Réserver sur Doctolib</a></p>
       </div>
     </div>
     <div class="contact-cta">
@@ -298,7 +298,7 @@
 <!-- ===== PIED ===== -->
 <footer class="pied">
   <div class="contenu">
-    <span>© 2026 Dr Charles Aisenberg — Médecine du sport, Levallois-Perret</span>
+    <span>© 2026 Dr Charles Aisenberg — Médecine du sport, Neuilly-sur-Seine &amp; Paris</span>
     <span><a href="mentions-legales.html">Mentions légales</a></span>
   </div>
 </footer>

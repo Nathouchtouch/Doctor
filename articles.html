@@ -66,6 +66,21 @@
   .carte-article .texte p{margin-bottom:12px}
   .carte-article .texte .ouvrir{font-weight:700;color:var(--bleu-vif);font-size:.93rem}
   @media(max-width:640px){.carte-article{flex-direction:column}.vignette{flex:none;border-right:none;border-bottom:1px solid var(--gris-bord)}.vignette .haut{padding:22px 18px}.carte-article .texte{padding:4px 24px 24px}}
+  /* ---- Bandeau contact (identique à l'accueil) ---- */
+  .contact{background:var(--marine);color:#fff;padding:80px 0}
+  .contact h2{color:#fff;font-size:clamp(1.8rem,3.5vw,2.5rem);text-align:center}
+  .contact .soustitre{text-align:center;color:#9fb4cf;margin:12px auto 44px;max-width:520px;font-weight:500}
+  .grille-contact{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+  .ct-item .et{text-transform:uppercase;letter-spacing:.13em;font-size:.73rem;color:var(--bleu-vif);font-weight:700;margin-bottom:8px}
+  .ct-item a,.ct-item p{color:#fff;text-decoration:none;font-weight:500}
+  .ct-item a:hover{text-decoration:underline}
+  .ct-item .lieu{display:block;font-weight:800;margin-bottom:2px}
+  .ct-item .rdv-lien{display:inline-block;margin-top:8px;font-size:.86rem;font-weight:700;color:#9fb4cf}
+  .ct-item .rdv-lien:hover{color:#fff}
+  .contact-cta{text-align:center;margin-top:44px}
+  @media(max-width:1000px){.grille-contact{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.grille-contact{grid-template-columns:1fr}}
+
   .pied{background:#0a1c30;color:#7f93ab;padding:40px 0;font-size:.88rem}
   .pied .contenu{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
   .pied a{color:#7f93ab}
@@ -122,6 +137,37 @@
         <span class="ouvrir">Ouvrir l'article →</span>
       </div>
     </a>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact">
+  <div class="contenu">
+    <h2>Prendre rendez-vous</h2>
+    <p class="soustitre">Les cabinets vous accueillent à Neuilly-sur-Seine et à Paris, sur rendez-vous.</p>
+    <div class="grille-contact">
+      <div class="ct-item">
+        <p class="et">Adresses</p>
+        <p><span class="lieu">Cabinet de Neuilly</span>7 Boulevard Richard Wallace<br>92200 Neuilly-sur-Seine</p>
+        <a class="rdv-lien" href="https://www.doctolib.fr/medecin-du-sport/paris/charles-aisenberg?pid=practice-629584" target="_blank" rel="noopener">Prendre rendez-vous →</a>
+      </div>
+      <div class="ct-item">
+        <p class="et" aria-hidden="true">&nbsp;</p>
+        <p><span class="lieu">Cabinet place des Ternes</span>241 Rue du Faubourg Saint-Honoré<br>75008 Paris</p>
+        <a class="rdv-lien" href="https://www.doctolib.fr/medecin-du-sport/paris/charles-aisenberg?pid=practice-629587" target="_blank" rel="noopener">Prendre rendez-vous →</a>
+      </div>
+      <div class="ct-item">
+        <p class="et">Téléphone</p>
+        <p><a href="tel:+33147576343">01 47 57 63 43</a></p>
+      </div>
+      <div class="ct-item">
+        <p class="et">Email</p>
+        <p><a href="mailto:docteur@aisenberg.net">docteur@aisenberg.net</a></p>
+      </div>
+    </div>
+    <div class="contact-cta">
+      <a href="https://www.doctolib.fr/medecin-du-sport/paris/charles-aisenberg" class="btn" target="_blank" rel="noopener">Réserver une consultation</a>
+    </div>
   </div>
 </section>
 

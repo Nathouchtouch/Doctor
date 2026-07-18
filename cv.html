@@ -13,6 +13,7 @@
     --marine:#0f2742;--marine-doux:#1d3a5c;--bleu-vif:#2f6fed;--bleu-clair:#eaf1fb;
     --gris-fond:#f4f6f9;--gris-bord:#e2e7ee;--texte:#1f2a37;--texte-doux:#5a6473;
     --blanc:#fff;--rayon:18px;--rayon-l:24px;--ombre:0 18px 50px rgba(15,39,66,.10);--largeur:1240px;
+    --tl-gauche:150px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -39,20 +40,50 @@
   .page-entete .fil{text-transform:uppercase;letter-spacing:.2em;font-size:.76rem;font-weight:700;color:var(--bleu-vif);margin-bottom:14px}
   .page-entete h1{font-size:clamp(2.2rem,4.5vw,3.4rem)}
   .page-entete .barre{width:60px;height:4px;background:var(--bleu-vif);border-radius:2px;margin-top:22px}
-  .page-corps{padding:64px 0}
-  .page-corps .contenu{max-width:800px}
-  .page-corps h2{font-size:1.5rem;margin:40px 0 14px}
-  .page-corps h2:first-child{margin-top:0}
-  .page-corps p{margin-bottom:16px;color:var(--texte-doux);font-weight:500}
-  .page-corps ul{margin:0 0 18px 22px;color:var(--texte-doux);font-weight:500}
-  .page-corps li{margin-bottom:7px}
-  .bloc-info{background:var(--bleu-clair);border-left:4px solid var(--bleu-vif);border-radius:12px;padding:22px 26px;margin:26px 0}
-  .bloc-info p{color:var(--marine-doux)}
-  .bloc-info p:last-child{margin-bottom:0}
+  .page-corps{padding:64px 0 90px}
+
+  /* ---- Frise chronologique ---- */
+  .timeline{position:relative;max-width:900px}
+  .tl-ligne{position:absolute;left:var(--tl-gauche);top:10px;bottom:10px;width:3px;transform:translateX(-50%);background:#454e5c;border-radius:2px}
+  .tl-remplissage{position:absolute;left:0;top:0;width:100%;height:0;background:var(--bleu-vif);border-radius:2px}
+  .tl-groupe{display:grid;grid-template-columns:120px 60px 1fr;padding:36px 0 8px}
+  .tl-groupe:first-child{padding-top:0}
+  .tl-groupe .lg{grid-column:3;text-transform:uppercase;letter-spacing:.2em;font-size:.76rem;font-weight:700;color:var(--bleu-vif)}
+  .tl-item{position:relative;display:grid;grid-template-columns:120px 60px 1fr;align-items:start;padding:22px 0}
+  .tl-annee{text-align:right;font-weight:800;color:var(--marine);font-size:1.05rem;line-height:1.5;white-space:nowrap}
+  .tl-point{width:16px;height:16px;margin:7px auto 0;background:#fff;border-radius:50%;box-shadow:0 2px 10px rgba(15,39,66,.35);position:relative;z-index:2}
+  .tl-point::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:3px solid var(--bleu-vif);opacity:0;pointer-events:none}
+  .tl-point.vague::after{animation:vague .9s ease-out}
+  @keyframes vague{
+    0%{opacity:.95;transform:scale(.5)}
+    100%{opacity:0;transform:scale(2.4)}
+  }
+  .tl-texte .t{font-weight:800;color:var(--marine);font-size:1.08rem;line-height:1.4}
+  .tl-texte .s{color:var(--texte-doux);font-weight:500;font-size:.95rem;margin-top:3px}
+  @media(max-width:640px){
+    :root{--tl-gauche:96px}
+    .tl-item,.tl-groupe{grid-template-columns:74px 44px 1fr}
+    .tl-annee{font-size:.9rem}
+  }
+
+  /* ---- Bandeau contact (identique à l'accueil) ---- */
+  .contact{background:var(--marine);color:#fff;padding:80px 0}
+  .contact h2{color:#fff;font-size:clamp(1.8rem,3.5vw,2.5rem);text-align:center}
+  .contact .soustitre{text-align:center;color:#9fb4cf;margin:12px auto 44px;max-width:520px;font-weight:500}
+  .grille-contact{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+  .ct-item .et{text-transform:uppercase;letter-spacing:.13em;font-size:.73rem;color:var(--bleu-vif);font-weight:700;margin-bottom:8px}
+  .ct-item a,.ct-item p{color:#fff;text-decoration:none;font-weight:500}
+  .ct-item a:hover{text-decoration:underline}
+  .ct-item .lieu{display:block;font-weight:800;margin-bottom:2px}
+  .ct-item .rdv-lien{display:inline-block;margin-top:8px;font-size:.86rem;font-weight:700;color:#9fb4cf}
+  .ct-item .rdv-lien:hover{color:#fff}
+  .contact-cta{text-align:center;margin-top:44px}
+  @media(max-width:1000px){.grille-contact{grid-template-columns:repeat(2,1fr)}}
+
   .pied{background:#0a1c30;color:#7f93ab;padding:40px 0;font-size:.88rem}
   .pied .contenu{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
   .pied a{color:#7f93ab}
-  @media(max-width:560px){.contenu{padding:0 20px}.page-corps{padding:46px 0}.page-entete{padding:48px 0 38px}}
+  @media(max-width:560px){.contenu{padding:0 20px}.page-corps{padding:46px 0 64px}.page-entete{padding:48px 0 38px}.grille-contact{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -87,24 +118,110 @@
 
 <section class="page-corps">
   <div class="contenu">
-    <p>Parcours, diplômes et qualifications du Dr Charles Aisenberg.</p>
-    <h2>Formation</h2>
-    <ul>
-      <li>Doctorat en médecine</li>
-      <li>Capacité de médecine du sport</li>
-      <li>Diplôme de médecine manuelle et ostéopathie</li>
-      <li>Diplôme de mésothérapie</li>
-    </ul>
-    <h2>Domaines d'exercice</h2>
-    <ul>
-      <li>Médecine du sport</li>
-      <li>Médecine manuelle et ostéopathie</li>
-      <li>Mésothérapie</li>
-      <li>Médecine de plongée</li>
-      <li>Médecine générale</li>
-    </ul>
-    <div class="bloc-info">
-      <p><strong>À compléter ensemble :</strong> remplacez ces lignes par les diplômes exacts, leurs dates et facultés, ainsi que les fonctions et expériences du Dr Aisenberg.</p>
+    <div class="timeline" id="timeline">
+      <div class="tl-ligne"><div class="tl-remplissage" id="tl-remplissage"></div></div>
+
+      <div class="tl-groupe">
+        <p class="lg">Formation universitaire</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-annee">1991 – 1998</div>
+        <div class="tl-point"></div>
+        <div class="tl-texte">
+          <p class="t">Études de médecine</p>
+          <p class="s">Faculté Paris X. Bichat</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-annee">1998 – 2001</div>
+        <div class="tl-point"></div>
+        <div class="tl-texte">
+          <p class="t">Résidanat</p>
+          <p class="s">Effectué en Île-de-France</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-annee">2005</div>
+        <div class="tl-point"></div>
+        <div class="tl-texte">
+          <p class="t">Doctorat en médecine générale</p>
+        </div>
+      </div>
+
+      <div class="tl-groupe">
+        <p class="lg">Diplômes post-universitaires</p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-annee">2007</div>
+        <div class="tl-point"></div>
+        <div class="tl-texte">
+          <p class="t">Capacité de médecine et biologie du sport</p>
+          <p class="s">Dr Peres — Université Paris VI</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-annee">2009</div>
+        <div class="tl-point"></div>
+        <div class="tl-texte">
+          <p class="t">Diplôme Universitaire (DU) de Médecine de plongée et des Sports Subaquatiques</p>
+          <p class="s">Dr Duvallet — Université Paris XIII</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-annee">2009</div>
+        <div class="tl-point"></div>
+        <div class="tl-texte">
+          <p class="t">Diplôme Inter-Universitaire (DIU) de Mésothérapie</p>
+          <p class="s">Dr Laurens — Université Paris VI</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-annee">2013</div>
+        <div class="tl-point"></div>
+        <div class="tl-texte">
+          <p class="t">Diplôme Inter-Universitaire (DIU) d'ostéopathie</p>
+          <p class="s">GEMMO Normandie</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact">
+  <div class="contenu">
+    <h2>Prendre rendez-vous</h2>
+    <p class="soustitre">Les cabinets vous accueillent à Neuilly-sur-Seine et à Paris, sur rendez-vous.</p>
+    <div class="grille-contact">
+      <div class="ct-item">
+        <p class="et">Adresses</p>
+        <p><span class="lieu">Cabinet de Neuilly</span>7 Boulevard Richard Wallace<br>92200 Neuilly-sur-Seine</p>
+        <a class="rdv-lien" href="https://www.doctolib.fr/medecin-du-sport/paris/charles-aisenberg?pid=practice-629584" target="_blank" rel="noopener">Prendre rendez-vous →</a>
+      </div>
+      <div class="ct-item">
+        <p class="et" aria-hidden="true">&nbsp;</p>
+        <p><span class="lieu">Cabinet place des Ternes</span>241 Rue du Faubourg Saint-Honoré<br>75008 Paris</p>
+        <a class="rdv-lien" href="https://www.doctolib.fr/medecin-du-sport/paris/charles-aisenberg?pid=practice-629587" target="_blank" rel="noopener">Prendre rendez-vous →</a>
+      </div>
+      <div class="ct-item">
+        <p class="et">Téléphone</p>
+        <p><a href="tel:+33147576343">01 47 57 63 43</a></p>
+      </div>
+      <div class="ct-item">
+        <p class="et">Email</p>
+        <p><a href="mailto:docteur@aisenberg.net">docteur@aisenberg.net</a></p>
+      </div>
+    </div>
+    <div class="contact-cta">
+      <a href="https://www.doctolib.fr/medecin-du-sport/paris/charles-aisenberg" class="btn" target="_blank" rel="noopener">Réserver une consultation</a>
     </div>
   </div>
 </section>
@@ -115,6 +232,50 @@
     <span><a href="mentions-legales.html">Mentions légales</a></span>
   </div>
 </footer>
+
+<script>
+  (function(){
+    var timeline = document.getElementById('timeline');
+    var ligne = timeline.querySelector('.tl-ligne');
+    var remplissage = document.getElementById('tl-remplissage');
+    var points = Array.prototype.slice.call(timeline.querySelectorAll('.tl-point'));
+    var etats = points.map(function(){ return false; });
+    var enAttente = false;
+
+    function metAJour(){
+      enAttente = false;
+      var rect = ligne.getBoundingClientRect();
+      /* Point d'ancrage : 60 % de la hauteur de l'écran */
+      var ancre = window.innerHeight * 0.6;
+      var progression = Math.max(0, Math.min(ancre - rect.top, rect.height));
+      remplissage.style.height = progression + 'px';
+
+      points.forEach(function(p, i){
+        var r = p.getBoundingClientRect();
+        var centre = r.top + r.height / 2 - rect.top; /* position du point sur la ligne */
+        var atteint = progression >= centre;
+        if(atteint && !etats[i]){
+          /* franchi en descendant : déclenche la vague */
+          p.classList.remove('vague');
+          void p.offsetWidth; /* réinitialise l'animation */
+          p.classList.add('vague');
+        }
+        etats[i] = atteint;
+      });
+    }
+
+    function surDefilement(){
+      if(!enAttente){
+        enAttente = true;
+        requestAnimationFrame(metAJour);
+      }
+    }
+
+    window.addEventListener('scroll', surDefilement, {passive:true});
+    window.addEventListener('resize', surDefilement);
+    metAJour();
+  })();
+</script>
 
 </body>
 </html>

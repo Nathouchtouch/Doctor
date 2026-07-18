@@ -83,17 +83,19 @@
   .carte-spe .trait{position:relative;width:34px;height:3px;background:var(--bleu-vif);border-radius:2px;margin-top:12px}
 
   /* ---- Bandeau atouts ---- */
-  .atouts{background:var(--gris-fond);padding:46px 0}
+  .atouts{background:var(--gris-fond);padding:30px 0}
   .grille-atouts{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
-  .atout{display:flex;gap:14px;align-items:flex-start}
+  .atout{display:flex;flex-direction:column;gap:8px}
+  .atout .haut{display:flex;align-items:center;gap:14px}
   .atout .ic{width:44px;height:44px;border-radius:11px;background:var(--blanc);border:1px solid var(--gris-bord);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
-  .atout .t{font-weight:800;font-size:.95rem;color:var(--marine)}
-  .atout .s{font-size:.86rem;color:var(--texte-doux)}
+  .atout .t{font-weight:800;font-size:.95rem;color:var(--marine);white-space:nowrap}
+  .atout .s{font-size:.86rem;color:var(--texte-doux);white-space:nowrap}
+  @media(max-width:1100px){.atout .t,.atout .s{white-space:normal}}
 
   /* ---- Section médecin ---- */
   .medecin{padding:90px 0}
   .medecin-grille{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
-  .medecin-photo{background:linear-gradient(160deg,var(--bleu-clair),#d6e3f7);border-radius:var(--rayon-l);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;color:var(--bleu-vif);text-align:center;font-size:.9rem;font-weight:600;padding:26px}
+  .medecin-photo{width:100%;height:auto;border-radius:var(--rayon-l);box-shadow:var(--ombre)}
   .medecin .surt{text-transform:uppercase;letter-spacing:.2em;font-size:.76rem;font-weight:700;color:var(--bleu-vif);margin-bottom:14px}
   .medecin h2{font-size:clamp(1.9rem,3.5vw,2.7rem);margin-bottom:18px}
   .medecin p{color:var(--texte-doux);margin-bottom:16px;font-weight:500}
@@ -233,20 +235,20 @@
   <div class="contenu">
     <div class="grille-atouts">
       <div class="atout">
-        <div class="ic">🎯</div>
-        <div><div class="t">Approche personnalisée</div><div class="s">Un soin adapté à chaque patient</div></div>
+        <div class="haut"><div class="ic">🎯</div><div class="t">Approche personnalisée</div></div>
+        <div class="s">Un soin adapté à chaque patient</div>
       </div>
       <div class="atout">
-        <div class="ic">🏃</div>
-        <div><div class="t">Pour tous les sportifs</div><div class="s">Amateurs, confirmés, sportifs urbains</div></div>
+        <div class="haut"><div class="ic">🏃</div><div class="t">Pour tous les sportifs</div></div>
+        <div class="s">Amateurs, confirmés, sportifs urbains</div>
       </div>
       <div class="atout">
-        <div class="ic">📅</div>
-        <div><div class="t">Consultations sur rendez-vous</div><div class="s">Cabinets à Neuilly-sur-Seine et Paris</div></div>
+        <div class="haut"><div class="ic">📅</div><div class="t">Consultations</div></div>
+        <div class="s">Cabinets à Neuilly et Paris</div>
       </div>
       <div class="atout">
-        <div class="ic">💬</div>
-        <div><div class="t">Médecine humaine</div><div class="s">Écoute, temps et suivi dans la durée</div></div>
+        <div class="haut"><div class="ic">💬</div><div class="t">Médecine humaine</div></div>
+        <div class="s">Écoute, temps et suivi dans la durée</div>
       </div>
     </div>
   </div>
@@ -256,7 +258,7 @@
 <section class="medecin">
   <div class="contenu">
     <div class="medecin-grille">
-      <div class="medecin-photo">Emplacement réservé<br>pour le portrait<br>du Dr Aisenberg</div>
+      <img class="medecin-photo" src="images/dr-aisenberg.jpg" alt="Portrait du Dr Charles Aisenberg">
       <div>
         <p class="surt">Le médecin</p>
         <h2>Dr Charles Aisenberg</h2>

@@ -20,6 +20,7 @@ $mime = @{
     ".webp" = "image/webp"
     ".ico"  = "image/x-icon"
     ".json" = "application/json"
+    ".pdf"  = "application/pdf"
 }
 
 while ($listener.IsListening) {

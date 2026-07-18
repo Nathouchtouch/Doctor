@@ -49,6 +49,11 @@
   .bloc-info{background:var(--bleu-clair);border-left:4px solid var(--bleu-vif);border-radius:12px;padding:22px 26px;margin:26px 0}
   .bloc-info p{color:var(--marine-doux)}
   .bloc-info p:last-child{margin-bottom:0}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:44px}
+  .duo h2{margin-top:0}
+  .duo ul{margin-bottom:0}
+  .cta-article{text-align:center;margin-top:48px}
+  @media(max-width:640px){.duo{grid-template-columns:1fr;gap:26px}}
   .pied{background:#0a1c30;color:#7f93ab;padding:40px 0;font-size:.88rem}
   .pied .contenu{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
   .pied a{color:#7f93ab}
@@ -89,16 +94,34 @@
   <div class="contenu">
     <h2>Qu'est-ce que la mésothérapie ?</h2>
     <p>Créée en 1952 par le Dr Pistor et reconnue en 1987 par l'Académie nationale de médecine, la mésothérapie est le traitement de certaines pathologies, dont la douleur, par l'injection locale de petites doses de médicaments. Ces injections sont très superficielles (de 1 à 13&nbsp;mm) et peu douloureuses. Le matériel (seringues et aiguilles) utilisé est bien évidemment stérile et à usage unique. Les injections peuvent être «&nbsp;manuelles&nbsp;» avec seringue et aiguille ou «&nbsp;assistées&nbsp;» d'un injecteur électronique.</p>
-    <h2>Indications fréquentes</h2>
-    <ul>
-      <li>Douleurs articulaires et tendineuses</li>
-      <li>Lombalgies et cervicalgies</li>
-      <li>Pathologies liées à la pratique sportive</li>
-    </ul>
     <h2>Déroulement d'une séance</h2>
-    <p>Le médecin évalue d'abord la zone concernée, puis réalise les injections à l'aide de fines aiguilles. La séance est brève et peut être renouvelée selon l'évolution constatée.</p>
-    <div class="bloc-info">
-      <p><strong>À compléter ensemble :</strong> ce texte est une base à ajuster avec les précisions que le Dr Aisenberg souhaite apporter — techniques employées, pathologies traitées, contre-indications.</p>
+    <p>Le médecin évalue d'abord la zone concernée, puis réalise les injections à l'aide de fines aiguilles. La séance est brève ; la plupart des pathologies nécessitent 2 à 4 séances, espacées de 5 à 15 jours.</p>
+    <div class="duo">
+      <div>
+        <h2>Indications fréquentes</h2>
+        <ul>
+          <li>Tendinites et tendinopathies</li>
+          <li>Entorses, périostites et hématomes</li>
+          <li>Contractures musculaires</li>
+          <li>Douleurs d'arthrose (dos, genoux, chevilles…)</li>
+          <li>Névralgies et céphalées d'origine vertébrale</li>
+          <li>Cicatrices fibreuses (adhérences)</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Les grands avantages</h2>
+        <ul>
+          <li>Un traitement local, sans inonder l'organisme de médicaments</li>
+          <li>Des effets secondaires limités</li>
+          <li>Un traitement administré pendant la séance</li>
+          <li>Un effet thérapeutique prolongé au-delà de plusieurs jours</li>
+          <li>Une voie privilégiée pour les personnes âgées ou poly-médicamentées</li>
+          <li>La poursuite de l'activité sportive au cours du traitement</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta-article">
+      <a href="articles.html" class="btn">En apprendre plus dans l'article du Dr Aisenberg</a>
     </div>
   </div>
 </section>

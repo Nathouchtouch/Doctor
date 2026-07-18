@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spécialités — Dr Charles Aisenberg</title>
+<meta name="description" content="Les spécialités du Dr Charles Aisenberg : médecine du sport, ostéopathie, mésothérapie, médecine de plongée et médecine générale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --marine:#0f2742;--marine-doux:#1d3a5c;--bleu-vif:#2f6fed;--bleu-clair:#eaf1fb;
+    --gris-fond:#f4f6f9;--gris-bord:#e2e7ee;--texte:#1f2a37;--texte-doux:#5a6473;
+    --blanc:#fff;--rayon:18px;--rayon-l:24px;--ombre:0 18px 50px rgba(15,39,66,.10);--largeur:1240px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Manrope',-apple-system,sans-serif;color:var(--texte);background:var(--blanc);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-weight:800;line-height:1.14;color:var(--marine);letter-spacing:-.02em}
+  img{max-width:100%;display:block}
+  a{color:var(--bleu-vif)}
+  .contenu{max-width:var(--largeur);margin:0 auto;padding:0 32px}
+  .entete{background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--gris-bord);position:sticky;top:0;z-index:100}
+  .entete .contenu{display:flex;align-items:center;justify-content:space-between;padding:18px 32px;gap:18px;flex-wrap:wrap}
+  .logo{text-decoration:none;line-height:1.05}
+  .logo .l1{display:block;font-size:.78rem;font-weight:600;letter-spacing:.22em;color:var(--texte-doux)}
+  .logo .l2{display:block;font-size:1.45rem;font-weight:800;color:var(--marine);letter-spacing:-.01em}
+  .logo .l3{display:block;font-size:.62rem;font-weight:600;letter-spacing:.28em;color:var(--bleu-vif);margin-top:2px}
+  .nav{display:flex;gap:2px;align-items:center;list-style:none;flex-wrap:wrap}
+  .nav a{text-decoration:none;color:var(--texte-doux);font-size:.94rem;font-weight:600;padding:9px 15px;border-radius:9px;transition:.2s}
+  .nav a:hover{background:var(--bleu-clair);color:var(--marine)}
+  .nav a.actif{color:var(--marine);background:var(--bleu-clair)}
+  .bouton-rdv{background:var(--marine)!important;color:#fff!important;padding:11px 22px!important;border-radius:50px!important}
+  .bouton-rdv:hover{background:var(--bleu-vif)!important}
+  .btn{display:inline-block;background:var(--bleu-vif);color:#fff;text-decoration:none;font-weight:700;font-size:.97rem;padding:14px 30px;border-radius:50px;transition:transform .15s,background .2s}
+  .btn:hover{background:var(--marine);transform:translateY(-2px)}
+
+  /* ---- Page Spécialités ---- */
+  .page-spe{background:linear-gradient(180deg,var(--gris-fond),var(--blanc) 460px);padding:66px 0 90px}
+  .fil{text-transform:uppercase;letter-spacing:.2em;font-size:.76rem;font-weight:700;color:var(--bleu-vif);margin-bottom:10px}
+
+  .acc{padding:30px 0 4px;scroll-margin-top:110px}
+  .acc-titre{display:flex;align-items:center;justify-content:space-between;gap:24px;cursor:pointer;user-select:none}
+  .acc-titre h2{font-size:clamp(1.9rem,4vw,3rem)}
+  .acc .barre{width:60px;height:4px;background:var(--bleu-vif);border-radius:2px;margin-top:20px}
+
+  /* Bouton flèche -> croix */
+  .acc-toggle{width:48px;height:48px;border-radius:50%;border:1.6px solid var(--gris-bord);background:var(--blanc);cursor:pointer;position:relative;flex-shrink:0;transition:border-color .3s,background .3s}
+  .acc-titre:hover .acc-toggle{border-color:var(--bleu-vif)}
+  .acc-toggle span{position:absolute;top:50%;left:50%;width:15px;height:2.6px;background:var(--marine);border-radius:2px;transition:transform .45s cubic-bezier(.4,0,.2,1),width .45s cubic-bezier(.4,0,.2,1)}
+  .acc-toggle .t1{transform:translate(-50%,-50%) translate(-4.6px,0) rotate(45deg)}
+  .acc-toggle .t2{transform:translate(-50%,-50%) translate(4.6px,0) rotate(-45deg)}
+  .acc.ouvert .acc-toggle .t1{width:19px;transform:translate(-50%,-50%) rotate(45deg)}
+  .acc.ouvert .acc-toggle .t2{width:19px;transform:translate(-50%,-50%) rotate(-45deg)}
+
+  /* Contenu dépliable */
+  .acc-contenu{display:grid;grid-template-rows:0fr;transition:grid-template-rows .55s cubic-bezier(.4,0,.2,1)}
+  .acc.ouvert .acc-contenu{grid-template-rows:1fr}
+  .acc-inner{overflow:hidden}
+  .acc-corps{max-width:860px;padding:34px 0 26px;opacity:0;transition:opacity .4s ease .1s}
+  .acc.ouvert .acc-corps{opacity:1}
+  .acc-corps h3{font-size:1.5rem;margin:34px 0 12px}
+  .acc-corps h3:first-child{margin-top:0}
+  .acc-corps p{margin-bottom:16px;color:var(--texte-doux);font-weight:500}
+  .acc-corps p:last-child{margin-bottom:0}
+  .acc-corps ul{margin:0 0 18px 22px;color:var(--texte-doux);font-weight:500}
+  .acc-corps li{margin-bottom:7px}
+
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:40px}
+  .duo h3{margin-top:0}
+  .duo ul{margin-bottom:0}
+  .cta-article{text-align:center;margin-top:44px}
+
+  .pied{background:#0a1c30;color:#7f93ab;padding:40px 0;font-size:.88rem}
+  .pied .contenu{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+  .pied a{color:#7f93ab}
+  @media(max-width:640px){.duo{grid-template-columns:1fr;gap:26px}.acc-toggle{width:42px;height:42px}}
+  @media(max-width:560px){.contenu{padding:0 20px}.page-spe{padding:48px 0 64px}}
+</style>
+</head>
+<body>
+
+<header class="entete">
+  <div class="contenu">
+    <a href="index.html" class="logo">
+      <span class="l1">DOCTEUR</span>
+      <span class="l2">AISENBERG</span>
+      <span class="l3">MÉDECINE DU SPORT</span>
+    </a>
+    <nav>
+      <ul class="nav">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="specialites.html" class="actif">Spécialités</a></li>
+        <li><a href="cv.html">Parcours</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://www.doctolib.fr/medecin-du-sport/paris/charles-aisenberg" class="bouton-rdv" target="_blank" rel="noopener">Prendre rendez-vous</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-spe">
+  <div class="contenu">
+    <p class="fil">Soins</p>
+
+    <!-- ===== Médecine du Sport ===== -->
+    <div class="acc" id="medecine-du-sport">
+      <div class="acc-titre" role="button" tabindex="0" aria-expanded="false">
+        <h2>Médecine du Sport</h2>
+        <button class="acc-toggle" type="button" aria-label="Afficher le détail"><span class="t1"></span><span class="t2"></span></button>
+      </div>
+      <div class="barre"></div>
+      <div class="acc-contenu"><div class="acc-inner"><div class="acc-corps">
+        <p>Contenu à établir avec le Dr Aisenberg.</p>
+      </div></div></div>
+    </div>
+
+    <!-- ===== Ostéopathie ===== -->
+    <div class="acc" id="osteopathie">
+      <div class="acc-titre" role="button" tabindex="0" aria-expanded="false">
+        <h2>Ostéopathie</h2>
+        <button class="acc-toggle" type="button" aria-label="Afficher le détail"><span class="t1"></span><span class="t2"></span></button>
+      </div>
+      <div class="barre"></div>
+      <div class="acc-contenu"><div class="acc-inner"><div class="acc-corps">
+        <p>Contenu à établir avec le Dr Aisenberg.</p>
+      </div></div></div>
+    </div>
+
+    <!-- ===== Mésothérapie ===== -->
+    <div class="acc" id="mesotherapie">
+      <div class="acc-titre" role="button" tabindex="0" aria-expanded="false">
+        <h2>Mésothérapie</h2>
+        <button class="acc-toggle" type="button" aria-label="Afficher le détail"><span class="t1"></span><span class="t2"></span></button>
+      </div>
+      <div class="barre"></div>
+      <div class="acc-contenu"><div class="acc-inner"><div class="acc-corps">
+        <h3>Qu'est-ce que la mésothérapie ?</h3>
+        <p>Créée en 1952 par le Dr Pistor et reconnue en 1987 par l'Académie nationale de médecine, la mésothérapie est le traitement de certaines pathologies, dont la douleur, par l'injection locale de petites doses de médicaments. Ces injections sont très superficielles (de 1 à 13&nbsp;mm) et peu douloureuses. Le matériel (seringues et aiguilles) utilisé est bien évidemment stérile et à usage unique. Les injections peuvent être «&nbsp;manuelles&nbsp;» avec seringue et aiguille ou «&nbsp;assistées&nbsp;» d'un injecteur électronique.</p>
+        <h3>Déroulement d'une séance</h3>
+        <p>Le médecin évalue d'abord la zone concernée, puis réalise les injections à l'aide de fines aiguilles. La séance est brève ; la plupart des pathologies nécessitent 2 à 4 séances, espacées de 5 à 15 jours.</p>
+        <div class="duo">
+          <div>
+            <h3>Indications fréquentes</h3>
+            <ul>
+              <li>Tendinites et tendinopathies</li>
+              <li>Entorses, périostites et hématomes</li>
+              <li>Contractures musculaires</li>
+              <li>Douleurs d'arthrose (dos, genoux, chevilles…)</li>
+              <li>Névralgies et céphalées d'origine vertébrale</li>
+              <li>Cicatrices fibreuses (adhérences)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Les grands avantages</h3>
+            <ul>
+              <li>Un traitement local, sans inonder l'organisme de médicaments</li>
+              <li>Des effets secondaires limités</li>
+              <li>Un traitement administré pendant la séance</li>
+              <li>Un effet thérapeutique prolongé au-delà de plusieurs jours</li>
+              <li>Une voie privilégiée pour les personnes âgées ou poly-médicamentées</li>
+              <li>La poursuite de l'activité sportive au cours du traitement</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cta-article">
+          <a href="articles.html" class="btn">En apprendre plus dans l'article du Dr Aisenberg</a>
+        </div>
+      </div></div></div>
+    </div>
+
+    <!-- ===== Médecine de Plongée ===== -->
+    <div class="acc" id="medecine-de-plongee">
+      <div class="acc-titre" role="button" tabindex="0" aria-expanded="false">
+        <h2>Médecine de Plongée</h2>
+        <button class="acc-toggle" type="button" aria-label="Afficher le détail"><span class="t1"></span><span class="t2"></span></button>
+      </div>
+      <div class="barre"></div>
+      <div class="acc-contenu"><div class="acc-inner"><div class="acc-corps">
+        <p>Contenu à établir avec le Dr Aisenberg.</p>
+      </div></div></div>
+    </div>
+
+    <!-- ===== Médecine Générale ===== -->
+    <div class="acc" id="medecine-generale">
+      <div class="acc-titre" role="button" tabindex="0" aria-expanded="false">
+        <h2>Médecine Générale</h2>
+        <button class="acc-toggle" type="button" aria-label="Afficher le détail"><span class="t1"></span><span class="t2"></span></button>
+      </div>
+      <div class="barre"></div>
+      <div class="acc-contenu"><div class="acc-inner"><div class="acc-corps">
+        <p>Contenu à établir avec le Dr Aisenberg.</p>
+      </div></div></div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="pied">
+  <div class="contenu">
+    <span>© 2026 Dr Charles Aisenberg — Médecine du sport, Neuilly-sur-Seine &amp; Paris</span>
+    <span><a href="mentions-legales.html">Mentions légales</a></span>
+  </div>
+</footer>
+
+<script>
+  function basculer(acc){
+    var ouvert = acc.classList.toggle('ouvert');
+    var titre = acc.querySelector('.acc-titre');
+    titre.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
+    var bouton = acc.querySelector('.acc-toggle');
+    bouton.setAttribute('aria-label', ouvert ? 'Fermer le détail' : 'Afficher le détail');
+  }
+
+  document.querySelectorAll('.acc').forEach(function(acc){
+    var titre = acc.querySelector('.acc-titre');
+    titre.addEventListener('click', function(){ basculer(acc); });
+    titre.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); basculer(acc); }
+    });
+  });
+
+  function ouvrirDepuisHash(){
+    var id = location.hash.slice(1);
+    if(!id) return;
+    var acc = document.getElementById(id);
+    if(acc && acc.classList.contains('acc')){
+      if(!acc.classList.contains('ouvert')) basculer(acc);
+      setTimeout(function(){ acc.scrollIntoView({behavior:'smooth', block:'start'}); }, 200);
+    }
+  }
+  window.addEventListener('hashchange', ouvrirDepuisHash);
+  ouvrirDepuisHash();
+</script>
+
+</body>
+</html>
